@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3C48CD74-EDC7-4945-8624-53CE5222B422}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QX.DAL</RootNamespace>
+    <AssemblyName>QX.DAL</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="QX.DataAcess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\QX.UI\Dll\QX.DataAcess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ADOAssets_Apply.cs" />
+    <Compile Include="ADOAssets_Record.cs" />
+    <Compile Include="ADOAsset_MApply.cs" />
+    <Compile Include="ADOAsset_MPlan.cs" />
+    <Compile Include="ADOAsset_Process.cs" />
+    <Compile Include="ADOAudit_Template.cs" />
+    <Compile Include="ADOBSE_Activities.cs" />
+    <Compile Include="ADOBse_Address.cs" />
+    <Compile Include="ADOBse_Attachments.cs" />
+    <Compile Include="ADOBse_Bak.cs" />
+    <Compile Include="ADOBse_Bank.cs" />
+    <Compile Include="ADOBse_CanteenItem.cs" />
+    <Compile Include="ADOBse_CompHistory.cs" />
+    <Compile Include="ADOBse_Components.cs" />
+    <Compile Include="ADOBse_Contacts.cs" />
+    <Compile Include="ADOBse_Dict.cs" />
+    <Compile Include="ADOBse_File.cs" />
+    <Compile Include="ADOBse_Group.cs" />
+    <Compile Include="ADOBse_Message.cs" />
+    <Compile Include="ADOBse_OpLog.cs" />
+    <Compile Include="ADOBse_Period.cs" />
+    <Compile Include="ADOBSE_SysInfo.cs" />
+    <Compile Include="ADOBse_Vehicles.cs" />
+    <Compile Include="ADOBussinessReception_Record.cs" />
+    <Compile Include="ADOCanteenHelp_Record.cs" />
+    <Compile Include="ADOCanteenItem_Record.cs" />
+    <Compile Include="ADOChartDetail.cs" />
+    <Compile Include="ADOChartMain.cs" />
+    <Compile Include="ADOChartToolBar.cs" />
+    <Compile Include="ADOCorrect_Preventing.cs" />
+    <Compile Include="ADOCustomer_Visit.cs" />
+    <Compile Include="ADODeptEmployee.cs" />
+    <Compile Include="ADODeptEmployee_Relation.cs" />
+    <Compile Include="ADODisplayPage_Config.cs" />
+    <Compile Include="ADODocument_IssueRecord.cs" />
+    <Compile Include="ADODocument_Lending.cs" />
+    <Compile Include="ADODocument_Manage.cs" />
+    <Compile Include="ADODocument_Movement.cs" />
+    <Compile Include="ADODoc_Allot.cs" />
+    <Compile Include="ADODoc_Attachment.cs" />
+    <Compile Include="ADODoc_Info.cs" />
+    <Compile Include="ADOEmptyPureWater_Manage.cs" />
+    <Compile Include="ADOEnvironment_Cost.cs" />
+    <Compile Include="ADOEqu_Information.cs" />
+    <Compile Include="ADOEqu_MPlan.cs" />
+    <Compile Include="ADOEqu_MRecords.cs" />
+    <Compile Include="ADOExpress_Record.cs" />
+    <Compile Include="ADOFax_Record.cs" />
+    <Compile Include="ADOGM_Seal.cs" />
+    <Compile Include="ADOGM_SealRecord.cs" />
+    <Compile Include="ADOGPSRecord.cs" />
+    <Compile Include="ADOGPS_CarConfig.cs" />
+    <Compile Include="ADOHotelReception_Record.cs" />
+    <Compile Include="ADOHouse_Cost.cs" />
+    <Compile Include="ADOHouse_Rental.cs" />
+    <Compile Include="ADOHouse_Usage.cs" />
+    <Compile Include="ADOHR_AA.cs" />
+    <Compile Include="ADOHR_Benefit.cs" />
+    <Compile Include="ADOHR_Evaluation.cs" />
+    <Compile Include="ADOHR_Experience.cs" />
+    <Compile Include="ADOHR_In.cs" />
+    <Compile Include="ADOHR_TimeSheet.cs" />
+    <Compile Include="ADOInsurance_Recod.cs" />
+    <Compile Include="ADOLM_Details.cs" />
+    <Compile Include="ADOLM_Main.cs" />
+    <Compile Include="ADOLoadometer_Usage.cs" />
+    <Compile Include="ADOMagazineOrder_Record.cs" />
+    <Compile Include="ADOMagazine_Distribution.cs" />
+    <Compile Include="ADOMealReception_Record.cs" />
+    <Compile Include="ADOMeasure_Details.cs" />
+    <Compile Include="ADOMeeting_Come.cs" />
+    <Compile Include="ADOMeeting_Record.cs" />
+    <Compile Include="ADOOther_Cost.cs" />
+    <Compile Include="ADOOutreach_Coordination.cs" />
+    <Compile Include="ADOOutreach_Info.cs" />
+    <Compile Include="ADOPay_Clause.cs" />
+    <Compile Include="ADOPCD_DRecord.cs" />
+    <Compile Include="ADOPCD_Expception.cs" />
+    <Compile Include="ADOPCD_NRecord.cs" />
+    <Compile Include="ADOPCD_Queue.cs" />
+    <Compile Include="ADOPCD_Voice.cs" />
+    <Compile Include="ADOPCT_Clear.cs" />
+    <Compile Include="ADOPCT_Event.cs" />
+    <Compile Include="ADOPCT_HandOver.cs" />
+    <Compile Include="ADOPCT_Info.cs" />
+    <Compile Include="ADOPCT_Owner.cs" />
+    <Compile Include="ADOPCT_Schedule.cs" />
+    <Compile Include="ADOPC_AEmp.cs" />
+    <Compile Include="ADOPC_AEqu.cs" />
+    <Compile Include="ADOPC_BLines.cs" />
+    <Compile Include="ADOPC_BStation.cs" />
+    <Compile Include="ADOPC_BWarehouse.cs" />
+    <Compile Include="ADOPC_Concrete.cs" />
+    <Compile Include="ADOPC_CPlan.cs" />
+    <Compile Include="ADOPC_MRItem.cs" />
+    <Compile Include="ADOPC_MRTemplate.cs" />
+    <Compile Include="ADOPC_Plan.cs" />
+    <Compile Include="ADOPC_PStatus.cs" />
+    <Compile Include="ADOPC_Warehouse.cs" />
+    <Compile Include="ADOPC_WError.cs" />
+    <Compile Include="ADOPlantChanged_Record.cs" />
+    <Compile Include="ADOPlantDamage_Record.cs" />
+    <Compile Include="ADOPlant_Decorations.cs" />
+    <Compile Include="ADOPlant_Record.cs" />
+    <Compile Include="ADOPrint_Record.cs" />
+    <Compile Include="ADOPU_Detail.cs" />
+    <Compile Include="ADOPU_Main.cs" />
+    <Compile Include="ADOPU_Relations.cs" />
+    <Compile Include="ADOPU_SMain.cs" />
+    <Compile Include="ADORec_Main.cs" />
+    <Compile Include="ADOSD_Banlance.cs" />
+    <Compile Include="ADOSD_BItem.cs" />
+    <Compile Include="ADOSD_Contract.cs" />
+    <Compile Include="ADOSD_CPrice.cs" />
+    <Compile Include="ADOSD_CTrans.cs" />
+    <Compile Include="ADOSD_FileTran.cs" />
+    <Compile Include="ADOSD_Invoice.cs" />
+    <Compile Include="ADOSD_Project.cs" />
+    <Compile Include="ADOSD_ProjectParts.cs" />
+    <Compile Include="ADOSD_Receivable.cs" />
+    <Compile Include="ADOSD_Receive.cs" />
+    <Compile Include="ADOSD_Route.cs" />
+    <Compile Include="ADOSEP_Record.cs" />
+    <Compile Include="ADOSTA_MMPP_DayCount.cs" />
+    <Compile Include="ADOSTA_MMPP_MDayCount.cs" />
+    <Compile Include="ADOSystem_Menu.cs" />
+    <Compile Include="ADOSys_OpLog.cs" />
+    <Compile Include="DalExtend\ADOSystem_TopMenu.cs" />
+    <Compile Include="DalExtend\ADOSys_Bug.cs" />
+    <Compile Include="DalExtend\ADOSys_BugLog.cs" />
+    <Compile Include="DalExtend\ADOSys_Config_Field_Refer.cs" />
+    <Compile Include="DalExtend\ADOSys_Config_Fieled.cs" />
+    <Compile Include="DalExtend\ADOSys_Config_ListPage.cs" />
+    <Compile Include="DalExtend\ADOSys_Config_Refer.cs" />
+    <Compile Include="ADOSys_DictModule.cs" />
+    <Compile Include="ADOSys_Function.cs" />
+    <Compile Include="ADOSys_Map.cs" />
+    <Compile Include="ADOSys_PD_Filed.cs" />
+    <Compile Include="ADOSys_PD_GridFormat.cs" />
+    <Compile Include="ADOSys_PD_Module.cs" />
+    <Compile Include="ADOSys_PD_RefModule.cs" />
+    <Compile Include="ADOSys_PU_Config.cs" />
+    <Compile Include="ADOSys_Rec_RefDepend.cs" />
+    <Compile Include="ADOSys_Role.cs" />
+    <Compile Include="ADOSys_UserPermission.cs" />
+    <Compile Include="ADOTC_DComp.cs" />
+    <Compile Include="ADOTC_EItem.cs" />
+    <Compile Include="ADOTC_Equ.cs" />
+    <Compile Include="ADOTC_Group.cs" />
+    <Compile Include="ADOTC_Item.cs" />
+    <Compile Include="ADOTC_PComp.cs" />
+    <Compile Include="ADOTC_PIComp.cs" />
+    <Compile Include="ADOTC_RItem.cs" />
+    <Compile Include="ADOTC_RRecord.cs" />
+    <Compile Include="ADOTC_RTemplate.cs" />
+    <Compile Include="ADOTC_RTItem.cs" />
+    <Compile Include="ADOTC_SComp.cs" />
+    <Compile Include="ADOTC_SIComp.cs" />
+    <Compile Include="ADOTC_SJComp.cs" />
+    <Compile Include="ADOTelephone_Record.cs" />
+    <Compile Include="ADOTrafficAccident_Record.cs" />
+    <Compile Include="ADOTravel_Record.cs" />
+    <Compile Include="ADOTravel_Reimbursement.cs" />
+    <Compile Include="ADOVehicles_ChangedRecord.cs" />
+    <Compile Include="ADOVehicles_Examined.cs" />
+    <Compile Include="ADOVehicles_Insurance.cs" />
+    <Compile Include="ADOVehicles_Maintain.cs" />
+    <Compile Include="ADOVehicles_OilRecord.cs" />
+    <Compile Include="ADOVehicles_Repair.cs" />
+    <Compile Include="ADOVehicles_Usage.cs" />
+    <Compile Include="ADOVerifyProcess_Records.cs" />
+    <Compile Include="ADOVerify_Nodes.cs" />
+    <Compile Include="ADOVerify_Template.cs" />
+    <Compile Include="ADOVerify_TemplateConfig.cs" />
+    <Compile Include="ADOVerify_Users.cs" />
+    <Compile Include="ADOVisit_Details.cs" />
+    <Compile Include="ADOWaterRecipients_Record.cs" />
+    <Compile Include="ADOWHR_PartyARecord.cs" />
+    <Compile Include="ADOWH_ApplyBuy.cs" />
+    <Compile Include="ADOWH_BanItem.cs" />
+    <Compile Include="ADOWH_Banlance.cs" />
+    <Compile Include="ADOWH_BanlanceRelate.cs" />
+    <Compile Include="ADOWH_BanMain.cs" />
+    <Compile Include="ADOWH_BItem.cs" />
+    <Compile Include="ADOWH_CEItem.cs" />
+    <Compile Include="ADOWH_CheckList.cs" />
+    <Compile Include="ADOWH_CItem.cs" />
+    <Compile Include="ADOWH_Contract.cs" />
+    <Compile Include="ADOWH_Dump.cs" />
+    <Compile Include="ADOWH_Invoice.cs" />
+    <Compile Include="ADOWH_IOItem.cs" />
+    <Compile Include="ADOWH_IOMain.cs" />
+    <Compile Include="ADOWH_Material.cs" />
+    <Compile Include="ADOWH_MaterialType.cs" />
+    <Compile Include="ADOWH_Movement.cs" />
+    <Compile Include="ADOWH_MVItem.cs" />
+    <Compile Include="ADOWH_Pay.cs" />
+    <Compile Include="ADOWH_Payable.cs" />
+    <Compile Include="ADOWH_Price.cs" />
+    <Compile Include="ADOWH_Sample.cs" />
+    <Compile Include="ADOWH_Storage.cs" />
+    <Compile Include="ADOWH_Supplier.cs" />
+    <Compile Include="ADOWH_Warehouse.cs" />
+    <Compile Include="ADOWH_WMaterial.cs" />
+    <Compile Include="ADOWork_Recipients.cs" />
+    <Compile Include="DalExtend\ADOApplyBuy.cs" />
+    <Compile Include="DalExtend\ADOAsset_MPlan.cs" />
+    <Compile Include="DalExtend\ADOBse_Dict.cs" />
+    <Compile Include="DalExtend\ADOComm.cs" />
+    <Compile Include="DalExtend\ADODocument_Manage.cs" />
+    <Compile Include="DalExtend\ADOSystem_Menu.cs" />
+    <Compile Include="DalExtend\ADOSys_DesktopConfig.cs" />
+    <Compile Include="DalExtend\ADOSys_LoginLog.cs" />
+    <Compile Include="DalExtend\ADOSys_Message.cs" />
+    <Compile Include="DalExtend\ADOSys_OnlineUser.cs" />
+    <Compile Include="DalExtend\ADOSys_RunLog.cs" />
+    <Compile Include="DalExtend\ADOSys_UserPermission.cs" />
+    <Compile Include="DalExtend\ADOVerify_TemplateConfig.cs" />
+    <Compile Include="DalExtend\Sys_RunLog.cs" />
+    <Compile Include="DalEx\ADOBse_Components.cs" />
+    <Compile Include="DalEx\ADOBse_File.cs" />
+    <Compile Include="DalEx\ADODoc_Info.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QX.Config\QX.Config.csproj">
+      <Project>{9B85B99A-7A14-46FF-9C58-DB2CD1A3D618}</Project>
+      <Name>QX.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QX.Model\QX.Model.csproj">
+      <Project>{AF56D9AE-6251-4C2F-9397-DB011BC274CB}</Project>
+      <Name>QX.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C9C96B92-850E-4188-9206-282C63BEDFDB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QX.BLL</RootNamespace>
+    <AssemblyName>QX.BLL</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=3.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\QX.UI\Dll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="QX.DataAcess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\QX.UI\Dll\QX.DataAcess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QX.Comm\QX.Comm.csproj">
+      <Project>{FCB48BE6-4E65-48FE-BFB1-C27E5528D311}</Project>
+      <Name>QX.Comm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QX.Config\QX.Config.csproj">
+      <Project>{9B85B99A-7A14-46FF-9C58-DB2CD1A3D618}</Project>
+      <Name>QX.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QX.DAL\QX.DAL.csproj">
+      <Project>{3C48CD74-EDC7-4945-8624-53CE5222B422}</Project>
+      <Name>QX.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QX.ERP.Dal\QX.ERP.Dal.csproj">
+      <Project>{4A897BAE-5565-4131-ABB2-12CAA6AC8150}</Project>
+      <Name>QX.ERP.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QX.Log\QX.Log.csproj">
+      <Project>{1C128DB1-7EFC-4BE0-B981-7F98CB171C42}</Project>
+      <Name>QX.Log</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QX.Model\QX.Model.csproj">
+      <Project>{AF56D9AE-6251-4C2F-9397-DB011BC274CB}</Project>
+      <Name>QX.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\Bll_Assets_Apply.cs" />
+    <Compile Include="Base\Bll_Assets_Record.cs" />
+    <Compile Include="Base\Bll_Asset_MApply.cs" />
+    <Compile Include="Base\Bll_Asset_MPlan.cs" />
+    <Compile Include="Base\Bll_Asset_Process.cs" />
+    <Compile Include="Base\Bll_Audit_Template.cs" />
+    <Compile Include="Base\Bll_BSE_Activities.cs" />
+    <Compile Include="Base\Bll_Bse_Address.cs" />
+    <Compile Include="Base\Bll_Bse_Attachments.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_Bse_Bak.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_Bse_Bank.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_Bse_CanteenItem.cs" />
+    <Compile Include="Base\Bll_Bse_Contacts.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_Bse_Dict.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_Bse_OpLog.cs" />
+    <Compile Include="Base\Bll_Bse_Period.cs" />
+    <Compile Include="Base\Bll_BSE_SysInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_Bse_Vehicles.cs" />
+    <Compile Include="Base\Bll_BussinessReception_Record.cs" />
+    <Compile Include="Base\Bll_CanteenHelp_Record.cs" />
+    <Compile Include="Base\Bll_CanteenItem_Record.cs" />
+    <Compile Include="Base\Bll_ChartDetail.cs" />
+    <Compile Include="Base\Bll_ChartMain.cs" />
+    <Compile Include="Base\Bll_ChartToolBar.cs" />
+    <Compile Include="Base\Bll_Correct_Preventing.cs" />
+    <Compile Include="Base\Bll_Customer_Visit.cs" />
+    <Compile Include="Base\Bll_DeptEmployee_Relation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_DisplayPage_Config.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_Document_IssueRecord.cs" />
+    <Compile Include="Base\Bll_Document_Lending.cs" />
+    <Compile Include="Base\Bll_Document_Manage.cs" />
+    <Compile Include="Base\Bll_Document_Movement.cs" />
+    <Compile Include="Base\Bll_Doc_Info.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_EmptyPureWater_Manage.cs" />
+    <Compile Include="Base\Bll_Environment_Cost.cs" />
+    <Compile Include="Base\Bll_Equ_Information.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_Equ_MPlan.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_Equ_MRecords.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_Express_Record.cs" />
+    <Compile Include="Base\Bll_Fax_Record.cs" />
+    <Compile Include="Base\Bll_GM_Seal.cs" />
+    <Compile Include="Base\Bll_GM_SealRecord.cs" />
+    <Compile Include="Base\Bll_GPSRecord.cs" />
+    <Compile Include="Base\Bll_GPS_CarConfig.cs" />
+    <Compile Include="Base\Bll_HotelReception_Record.cs" />
+    <Compile Include="Base\Bll_House_Cost.cs" />
+    <Compile Include="Base\Bll_House_Rental.cs" />
+    <Compile Include="Base\Bll_House_Usage.cs" />
+    <Compile Include="Base\Bll_HR_AA.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_HR_Benefit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_HR_Department.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_HR_Evaluation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_HR_Experience.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_HR_In.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_HR_Stuff.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_HR_TimeSheet.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_Insurance_Recod.cs" />
+    <Compile Include="Base\Bll_LM_Details.cs" />
+    <Compile Include="Base\Bll_LM_Main.cs" />
+    <Compile Include="Base\Bll_Loadometer_Usage.cs" />
+    <Compile Include="Base\Bll_MagazineOrder_Record.cs" />
+    <Compile Include="Base\Bll_Magazine_Distribution.cs" />
+    <Compile Include="Base\Bll_MealReception_Record.cs" />
+    <Compile Include="Base\Bll_Measure_Details.cs" />
+    <Compile Include="Base\Bll_Meeting_Come.cs" />
+    <Compile Include="Base\Bll_Meeting_Record.cs" />
+    <Compile Include="Base\Bll_Other_Cost.cs" />
+    <Compile Include="Base\Bll_Outreach_Coordination.cs" />
+    <Compile Include="Base\Bll_Outreach_Info.cs" />
+    <Compile Include="Base\Bll_PCD_DRecord.cs" />
+    <Compile Include="Base\Bll_PCD_Expception.cs" />
+    <Compile Include="Base\Bll_PCD_NRecord.cs" />
+    <Compile Include="Base\Bll_PCD_Queue.cs" />
+    <Compile Include="Base\Bll_PCD_Voice.cs" />
+    <Compile Include="Base\Bll_PCT_Clear.cs" />
+    <Compile Include="Base\Bll_PCT_Event.cs" />
+    <Compile Include="Base\Bll_PCT_HandOver.cs" />
+    <Compile Include="Base\Bll_PCT_Info.cs" />
+    <Compile Include="Base\Bll_PCT_Owner.cs" />
+    <Compile Include="Base\Bll_PCT_Schedule.cs" />
+    <Compile Include="Base\Bll_PC_AEmp.cs" />
+    <Compile Include="Base\Bll_PC_AEqu.cs" />
+    <Compile Include="Base\Bll_PC_BLines.cs" />
+    <Compile Include="Base\Bll_PC_BStation.cs" />
+    <Compile Include="Base\Bll_PC_BWarehouse.cs" />
+    <Compile Include="Base\Bll_PC_Concrete.cs" />
+    <Compile Include="Base\Bll_PC_CPlan.cs" />
+    <Compile Include="Base\Bll_PC_MRItem.cs" />
+    <Compile Include="Base\Bll_PC_MRTemplate.cs" />
+    <Compile Include="Base\Bll_PC_Plan.cs" />
+    <Compile Include="Base\Bll_PC_PStatus.cs" />
+    <Compile Include="Base\Bll_PC_Warehouse.cs" />
+    <Compile Include="Base\Bll_PC_WError.cs" />
+    <Compile Include="Base\Bll_PlantChanged_Record.cs" />
+    <Compile Include="Base\Bll_PlantDamage_Record.cs" />
+    <Compile Include="Base\Bll_Plant_Decorations.cs" />
+    <Compile Include="Base\Bll_Plant_Record.cs" />
+    <Compile Include="Base\Bll_Print_Record.cs" />
+    <Compile Include="Base\Bll_PU_Detail.cs" />
+    <Compile Include="Base\Bll_PU_Main.cs" />
+    <Compile Include="Base\Bll_PU_Relations.cs" />
+    <Compile Include="Base\Bll_PU_SMain.cs" />
+    <Compile Include="Base\Bll_SD_Banlance.cs" />
+    <Compile Include="Base\Bll_SD_BItem.cs" />
+    <Compile Include="Base\Bll_SD_Contract.cs" />
+    <Compile Include="Base\Bll_SD_CPrice.cs" />
+    <Compile Include="Base\Bll_SD_CTrans.cs" />
+    <Compile Include="Base\Bll_SD_FileTran.cs" />
+    <Compile Include="Base\Bll_SD_Invoice.cs" />
+    <Compile Include="Base\Bll_SD_Project.cs" />
+    <Compile Include="Base\Bll_SD_ProjectParts.cs" />
+    <Compile Include="Base\Bll_SD_Receivable.cs" />
+    <Compile Include="Base\Bll_SD_Receive.cs" />
+    <Compile Include="Base\Bll_SD_Route.cs" />
+    <Compile Include="Base\Bll_SEP_Record.cs" />
+    <Compile Include="Base\Bll_STA_MMPP_DayCount.cs" />
+    <Compile Include="Base\Bll_STA_MMPP_MDayCount.cs" />
+    <Compile Include="Base\Bll_Sys_Config_Field_Refer.cs" />
+    <Compile Include="Base\Bll_Sys_Config_Fieled.cs" />
+    <Compile Include="Base\Bll_Sys_Config_ListPage.cs" />
+    <Compile Include="Base\Bll_Sys_Config_Refer.cs" />
+    <Compile Include="Base\Bll_Sys_DictModule.cs" />
+    <Compile Include="Base\Bll_Sys_Map.cs" />
+    <Compile Include="Base\Bll_Sys_PD_Filed.cs" />
+    <Compile Include="Base\Bll_Sys_PD_GridFormat.cs" />
+    <Compile Include="Base\Bll_Sys_PD_Module.cs" />
+    <Compile Include="Base\Bll_Sys_PD_RefModule.cs" />
+    <Compile Include="Base\Bll_Sys_PU_Config.cs" />
+    <Compile Include="Base\Bll_Sys_Rec_RefDepend.cs" />
+    <Compile Include="Base\Bll_TC_DComp.cs" />
+    <Compile Include="Base\Bll_TC_EItem.cs" />
+    <Compile Include="Base\Bll_TC_Equ.cs" />
+    <Compile Include="Base\Bll_TC_Group.cs" />
+    <Compile Include="Base\Bll_TC_Item.cs" />
+    <Compile Include="Base\Bll_TC_PComp.cs" />
+    <Compile Include="Base\Bll_TC_PIComp.cs" />
+    <Compile Include="Base\Bll_TC_RItem.cs" />
+    <Compile Include="Base\Bll_TC_RRecord.cs" />
+    <Compile Include="Base\Bll_TC_RTemplate.cs" />
+    <Compile Include="Base\Bll_TC_RTItem.cs" />
+    <Compile Include="Base\Bll_TC_SComp.cs" />
+    <Compile Include="Base\Bll_TC_SIComp.cs" />
+    <Compile Include="Base\Bll_TC_SJComp.cs" />
+    <Compile Include="Base\Bll_Telephone_Record.cs" />
+    <Compile Include="Base\Bll_TrafficAccident_Record.cs" />
+    <Compile Include="Base\Bll_Travel_Record.cs" />
+    <Compile Include="Base\Bll_Travel_Reimbursement.cs" />
+    <Compile Include="Base\Bll_Vehicles_ChangedRecord.cs" />
+    <Compile Include="Base\Bll_Vehicles_Examined.cs" />
+    <Compile Include="Base\Bll_Vehicles_Insurance.cs" />
+    <Compile Include="Base\Bll_Vehicles_Maintain.cs" />
+    <Compile Include="Base\Bll_Vehicles_OilRecord.cs" />
+    <Compile Include="Base\Bll_Vehicles_Repair.cs" />
+    <Compile Include="Base\Bll_Vehicles_Usage.cs" />
+    <Compile Include="Base\Bll_Visit_Details.cs" />
+    <Compile Include="Base\Bll_WaterRecipients_Record.cs" />
+    <Compile Include="Base\Bll_WHR_PartyARecord.cs" />
+    <Compile Include="Base\Bll_WH_BanItem.cs" />
+    <Compile Include="Base\Bll_WH_BanlanceRelate.cs" />
+    <Compile Include="Base\Bll_WH_BanMain.cs" />
+    <Compile Include="Base\Bll_WH_Dump.cs" />
+    <Compile Include="Base\Bll_WH_IOItem.cs" />
+    <Compile Include="Base\Bll_WH_IOMain.cs" />
+    <Compile Include="Base\Bll_WH_MaterialType.cs" />
+    <Compile Include="Base\Bll_WH_Pay.cs" />
+    <Compile Include="Base\Bll_WH_Price.cs" />
+    <Compile Include="Base\Bll_WH_Sample.cs" />
+    <Compile Include="Base\Bll_WH_Storage.cs" />
+    <Compile Include="Base\Bll_Work_Recipients.cs" />
+    <Compile Include="Bll_Asset_MPlan.cs" />
+    <Compile Include="New\Bll_Comp.cs" />
+    <Compile Include="New\Bll_Doc.cs" />
+    <Compile Include="Bll_EquProcurement.cs" />
+    <Compile Include="New\Bll_File.cs" />
+    <Compile Include="Bll_Menus.cs" />
+    <Compile Include="Comm\Bll_Audit.cs" />
+    <Compile Include="Bll_Bse_Attachments.cs" />
+    <Compile Include="Comm\Bll_Comm.cs" />
+    <Compile Include="Bll_Rpt.cs" />
+    <Compile Include="Comm\Bll_System_TopMenu.cs" />
+    <Compile Include="Bll_Sys_Bug.cs" />
+    <Compile Include="Bll_Sys_BugLog.cs" />
+    <Compile Include="Bll_Sys_Config_Refer.cs" />
+    <Compile Include="Bll_Sys_Config_ListPage.cs" />
+    <Compile Include="Bll_Document_Manage.cs" />
+    <Compile Include="Bll_Ref_Config.cs" />
+    <Compile Include="Bll_Sys_DesktopConfig.cs" />
+    <Compile Include="Bll_Sys_Function.cs" />
+    <Compile Include="Bll_Sys_LoginLog.cs" />
+    <Compile Include="Bll_Sys_Message.cs" />
+    <Compile Include="Bll_Sys_OnlineUser.cs" />
+    <Compile Include="Comm\Bll_Sys_Role.cs" />
+    <Compile Include="Comm\Bll_Sys_UserPermission.cs" />
+    <Compile Include="BLL_Invoice_Operate.cs" />
+    <Compile Include="Bll_Menus_Operate.cs" />
+    <Compile Include="Bll_ApplyBuy.cs" />
+    <Compile Include="Bll_Menus_Move.cs" />
+    <Compile Include="Base\Bll_Pay_Clause.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_Rec_Main.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_System_Menu.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_VerifyProcess_Records.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_Verify_Nodes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_Verify_TemplateConfig.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_Verify_Users.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_WH_Banlance.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_WH_BItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_WH_CEItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_WH_CheckList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_WH_CItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_WH_Contract.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_WH_Invoice.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_WH_Material.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_WH_Movement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_WH_MVItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_WH_Payable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_WH_Supplier.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_WH_Warehouse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Bll_WH_WMaterial.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bll_Audit_Templdate.cs" />
+    <Compile Include="Comm\Bll_Bse_Dict.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bll_BSE_Sysinfo.cs" />
+    <Compile Include="ERP\Bll_DeptEmployee_Relation.cs" />
+    <Compile Include="New\Bll_Doc_Info.cs" />
+    <Compile Include="Bll_Equ_Information.cs" />
+    <Compile Include="Bll_Equ_Mplan.cs" />
+    <Compile Include="Bll_Equ_MRecords.cs" />
+    <Compile Include="ERP\Bll_HR_Department.cs" />
+    <Compile Include="ERP\Bll_HR_Stuff.cs" />
+    <Compile Include="Bll_SystemMenu.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Comm\Bll_System_Menu.cs" />
+    <Compile Include="Base\Bll_WH_ApplyBuy.cs" />
+    <Compile Include="ERP\Bll_RoadComponents.cs" />
+    <Compile Include="FileCsv.cs" />
+    <Compile Include="New\Bll_Message.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
