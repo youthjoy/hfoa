@@ -23,18 +23,30 @@
             <%Html.RenderPartial("FCKEditor", ""); %>
         </div>
         <div id="tabs-2">
-            <%if (Html.IsHavePermission("400600"))
-              { %>
-            <%Html.RenderPartial("AttachmentsControl", "uploadCallback", new ViewDataDictionary { new KeyValuePair<string, object>("UploadUrl", "/Doc/Upload/"), new KeyValuePair<string, object>("SetParamCallback", "setParameter"), new KeyValuePair<string, object>("CID", "Attach"), new KeyValuePair<string, object>("FileType", "Comp") }); %>
-            <%} %>
-            <%=Html.GenToolbarHelper("CompDoc_AttachmentModule", "Doc_Attachment", "delN:'删除附件',delFunJs:'Del()'")%>
-            <%=Html.SysComm_JqGrid("CompDoc_AttachmentModule", "Doc_Attachment", "/Doc/GetAttachmentList/" + Model.Comp_Code + "-Bse_ComponentsModule", true)%>
+            <table>
+                <tr>
+                    <td style="width:300px; border:solid 1px #e5e5e5;">
+                        <%=Html.GenToolbarHelper("CList_RoadNode", "RoadNode", "")%>
+                        <%=Html.SysComm_JqGrid("CList_RoadNode", "RoadNode", "/Comp/GetRoadNodesList/" , true)%>
+                    </td>
+                    <td style="width:70%;">
+                    <div>
+                        <%if (Html.IsHavePermission("400600"))
+                          { %>
+                        <%Html.RenderPartial("AttachmentsControl", "uploadCallback", new ViewDataDictionary { new KeyValuePair<string, object>("UploadUrl", "/Doc/Upload/"), new KeyValuePair<string, object>("SetParamCallback", "setParameter"), new KeyValuePair<string, object>("CID", "Attach"), new KeyValuePair<string, object>("FileType", "Comp") }); %>
+                        <%} %>
+                        <%=Html.GenToolbarHelper("CompDoc_AttachmentModule", "Doc_Attachment", "delN:'删除附件',delFunJs:'Del()'")%>
+                        <%=Html.SysComm_JqGrid("CompDoc_AttachmentModule", "Doc_Attachment", "/Doc/GetAttachmentList/" + Model.Comp_Code + "-Bse_ComponentsModule", true)%>
+                    </div>
+                    </td>
+                </tr>
+            </table>
         </div>
         <div id="tabs-3">
             <%=Html.GenToolbarHelper("CompDoc_AllotModule", "Doc_Allot", "addN:'查看授权',addFunJs:'Allot()',editN:'下载授权',editFunJs:'DownloadAllot()'")%>
             <%=Html.SysComm_JqGrid("CompDoc_AllotModule", "Doc_Allot", "/Doc/GetAllot/" + Model.Comp_Code, true)%>
         </div>
-     <%--   <div id="tabs-4">
+        <%--   <div id="tabs-4">
             <%Html.RenderPartial("AttachmentsControl", "uploadImgCallback", new ViewDataDictionary { new KeyValuePair<string, object>("UploadUrl", "/Comp/Upload/"), new KeyValuePair<string, object>("CID", "AuditImg"), new KeyValuePair<string, object>("FileType", "Comp") }); %>
             <%=Html.GenToolbarHelper("Bse_CompHistoryModule", "Bse_CompHistory", "addN:'打印',addFunJs:'Print()',delN:'删除附件',delFunJs:'Del()'")%>
             <%=Html.SysComm_JqGrid("Bse_CompHistoryModule", "Bse_CompHistory", "/Comp/GetCompHisList/" + Model.Comp_Code, true)%>
@@ -49,7 +61,6 @@
     </fieldset>
     <%=Html.ReferControl("Road_ComponentsModule", "Road_Components", false)%>
     <%=Html.ReferControlEx("Bse_GroupRefModule", "Bse_Group", false)%>
-    
     <%=Html.ReferControl("CustomerModule", "Customer", false)%>
 
     <script type="text/javascript">
@@ -82,11 +93,18 @@
         }
 
         function setParameter(loader) {
-            if ($("#Comp_Cate").val() == '' && $("#Comp_Type").val() != "CompType1") {
-                alert("请选择工艺节点");
+//            if ($("#Comp_Cate").val() == '' && $("#Comp_Type").val() != "CompType1") {
+//                alert("请选择工艺节点");
+//                return false;
+            //            }
+
+            var grid = $('#RoadNodegrid');
+            var curid = grid.getGridParam('selrow'); //获取选择行的id
+            if (curid == undefined || curid == null) {
+                alert("请选择工序节点");
                 return false;
             }
-            loader.setParams({ typeParam: 'Comp', DictKey: "RoadNode", Cate: $("#Comp_Cate").val() });
+            loader.setParams({ typeParam: 'Comp', DictKey: "RoadNode", Cate: curid.RNodes_Code });
             return true;
         }
 
@@ -187,8 +205,13 @@
             //零件图号参考
             $("#Comp_CCode").click(function() {
                 Road_ComponentsModuleRoad_ComponentsOpenRefer(function(data) {
+                    //图号信息更新
                     $("#Comp_CCode").val(data.Comp_Code);
                     $("#Comp_Name").val(data.Comp_Name);
+                    //工序模板列表更新
+                    $("#RoadNodegrid").setGridParam({ url: '/Comp/GetRoadNodesList/' + data.Comp_Code }).trigger("reloadGrid");
+                    
+
                 });
             });
 
@@ -264,6 +287,7 @@
     <script src="/Scripts/Shared/jquery.multiselect.min.js" type="text/javascript"></script>
 
     <script src="/Scripts/Shared/Dict.js" type="text/javascript"></script>
+
     <script src="/Scripts/Shared/Dict_ERP.js" type="text/javascript"></script>
 
     <script src="/Scripts/Shared/Group.js" type="text/javascript"></script>

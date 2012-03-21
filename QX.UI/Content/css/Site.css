@@ -1820,7 +1820,8 @@ div.ui-tabs-panel.ui-widget-content.ui-corner-bottom td
 }
 .DocmentsWidth
 {
-    width: 800px;
+   /* width: 800px;*/
+   width:100%;
     overflow: hidden;
 }
 

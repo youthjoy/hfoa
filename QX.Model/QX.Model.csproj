@@ -108,6 +108,7 @@
     <Compile Include="ERP\Bse_Department.cs" />
     <Compile Include="ERP\Bse_DepartmentEx.cs" />
     <Compile Include="ERP\Bse_Employee.cs" />
+    <Compile Include="ERP\Road_Nodes.cs" />
     <Compile Include="ERP\SD_Customer.cs" />
     <Compile Include="Express_Record.cs" />
     <Compile Include="Fax_Record.cs" />

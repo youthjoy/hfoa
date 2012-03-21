@@ -41,17 +41,22 @@ namespace QX.BLL
             return sdInstance.GetListByWhere(string.Format("AND {0} AND Cust_Type='GCustomer'", where));
         }
 
+        /// <summary>
+        /// 获取零件图号维护的客户列表
+        /// </summary>
+        /// <returns></returns>
         public List<TheTreeNode> GenerateCompTree()
         {
             //获取客户列表-->转换成TheTreeNode
             List<SD_Customer> list = sdInstance.GetListByWhere(string.Format(" AND Cust_Type='GCustomer'"));
-            List<Bse_Components> compList = cInstance.GetAll();
+         //   List<Bse_Components> compList = cInstance.GetAll();
             List<TheTreeNode> root = (from c in list select new TheTreeNode {parent="", state = c.Cust_Code, data = c.Cust_Name }).ToList();
 
-            foreach (var c in root)
-            {
-                GenerateChild(c, compList);
-            }
+            //foreach (var c in root)
+            //{
+            //    //GenerateChild(c, compList);
+
+            //}
 
             //获取客户图号列表-->转换成TheTreeNode
             return root;

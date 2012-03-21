@@ -46,6 +46,32 @@ namespace QX.Controllers.Controllers
         }
 
 
+        public ActionResult GetRoadNodesList(string id, string rtype, int page, int rows, string search, string sidx, string sord)
+        {
+            
+            string filter = Request["filters"] != null ? Request["filters"] : "";
+            string filterSql = "";
+            if (!string.IsNullOrEmpty(filter))
+            {
+                filterSql = filter.BuildSearch("CList_RoadNode");
+                //filterSql = BulidJqGridSearch.BuildSearch(filter);
+            }
+            List<Road_Nodes> list = new List<Road_Nodes>();
+            if (!string.IsNullOrEmpty(id))
+            {
+                list = this.rcInstance.GetRoadNodeTplByCompCode(id);
+            }
+
+            var model = list.AsQueryable<Road_Nodes>();
+            //var result = model.ToJqGridData(page, rows, null, search, null);
+
+            var jsonResult = JsonConvert.SerializeObject(model.ToJqGridData(page, rows, null, search, null), new JsonDateConverter("yyyy-MM-dd"));
+            return JavaScript(jsonResult);
+            //return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+  
+
         public ActionResult Add()
         {
             Bse_Components info = new Bse_Components();

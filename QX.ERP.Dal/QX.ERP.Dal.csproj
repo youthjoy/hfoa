@@ -49,6 +49,7 @@
     <Compile Include="ADOBse_Dict.cs" />
     <Compile Include="ADOBse_Employee.cs" />
     <Compile Include="ADORoad_Components.cs" />
+    <Compile Include="ADORoad_Nodes.cs" />
     <Compile Include="ADOSD_Customer.cs" />
     <Compile Include="Data\DBOperator.cs" />
     <Compile Include="Data\IDBOperator.cs" />
