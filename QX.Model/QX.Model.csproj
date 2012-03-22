@@ -139,7 +139,7 @@
     <Compile Include="Meeting_Record.cs" />
     <Compile Include="MetaData\MetaData.cs" />
     <Compile Include="ModelExtend\Audit_Template.cs" />
-    <Compile Include="ModelExtend\Bse_Components.cs" />
+    <Compile Include="ModelExtend\Doc_Attachment.cs" />
     <Compile Include="ModelExtend\Bse_Dict.cs" />
     <Compile Include="ModelExtend\ChartConfig.cs" />
     <Compile Include="ModelExtend\CustOpen.cs" />

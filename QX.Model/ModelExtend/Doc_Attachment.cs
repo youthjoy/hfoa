@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QX.Model
 {
-    public partial class Bse_Components
+    public partial class Doc_Attachment
     {
         public string Download
         {

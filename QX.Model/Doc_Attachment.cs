@@ -199,5 +199,65 @@ namespace QX.Model
          get{ return stat_IsChanged; }
          set{ stat_IsChanged = value; }
       }
+      private string dat_Udef1;
+      private bool dat_Udef1_IsChanged=false;
+      public string Dat_Udef1
+      {
+         get{ return dat_Udef1; }
+         set{ dat_Udef1 = value; dat_Udef1_IsChanged=true; }
+      }
+      public bool Dat_Udef1_IsChanged
+      {
+         get{ return dat_Udef1_IsChanged; }
+         set{ dat_Udef1_IsChanged = value; }
+      }
+      private string dat_Udef2;
+      private bool dat_Udef2_IsChanged=false;
+      public string Dat_Udef2
+      {
+         get{ return dat_Udef2; }
+         set{ dat_Udef2 = value; dat_Udef2_IsChanged=true; }
+      }
+      public bool Dat_Udef2_IsChanged
+      {
+         get{ return dat_Udef2_IsChanged; }
+         set{ dat_Udef2_IsChanged = value; }
+      }
+      private string dat_Udef3;
+      private bool dat_Udef3_IsChanged=false;
+      public string Dat_Udef3
+      {
+         get{ return dat_Udef3; }
+         set{ dat_Udef3 = value; dat_Udef3_IsChanged=true; }
+      }
+      public bool Dat_Udef3_IsChanged
+      {
+         get{ return dat_Udef3_IsChanged; }
+         set{ dat_Udef3_IsChanged = value; }
+      }
+      private string dat_Udef4;
+      private bool dat_Udef4_IsChanged=false;
+      public string Dat_Udef4
+      {
+         get{ return dat_Udef4; }
+         set{ dat_Udef4 = value; dat_Udef4_IsChanged=true; }
+      }
+      public bool Dat_Udef4_IsChanged
+      {
+         get{ return dat_Udef4_IsChanged; }
+         set{ dat_Udef4_IsChanged = value; }
+      }
+      private string dat_ShowName;
+      private bool dat_ShowName_IsChanged=false;
+      public string Dat_ShowName
+      {
+         get{ return dat_ShowName; }
+         set{ dat_ShowName = value; dat_ShowName_IsChanged=true; }
+      }
+      public bool Dat_ShowName_IsChanged
+      {
+         get{ return dat_ShowName_IsChanged; }
+         set{ dat_ShowName_IsChanged = value; }
+      }
    }
 }

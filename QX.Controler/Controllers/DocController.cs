@@ -99,6 +99,11 @@ namespace QX.Controllers.Controllers
                     break;
                 case "Comp":
                     path = System.Configuration.ConfigurationSettings.AppSettings["Comp"];
+                    string compcode=Request["CompCode"];
+                    if(!string.IsNullOrEmpty(compcode))
+                    {
+                        path = Path.Combine(path ,compcode);
+                    }
                     break;
                 case "Doc":
                 default:
@@ -1038,7 +1043,7 @@ namespace QX.Controllers.Controllers
         /// <param name="path"></param>
         /// <param name="module"></param>
         /// <returns></returns>
-        public ActionResult UploadDocComp(string code, string path, string module)
+        public ActionResult UploadDocComp(string code, string path,string type, string typename,string node,string nodename,string module)
         {
             string fileName = Path.GetFileName(path);
             Doc_Attachment attachment = new Doc_Attachment();
@@ -1053,6 +1058,11 @@ namespace QX.Controllers.Controllers
             attachment.Dat_Creator = SessionConfig.UserId();
             attachment.Dat_CreatorName = SessionConfig.UserName();
             attachment.Dat_Code = diInstance.GenerateAttachmentCode();
+            //图纸的类型-->全工艺 、工艺节点
+            attachment.Dat_Udef1 = type;
+            attachment.Dat_Udef2 = typename;
+            attachment.Dat_Udef3 = node;
+            attachment.Dat_Udef4 = nodename;
             diInstance.AddAttachment(attachment);
 
             BLL.Bll_Comm.OpLog("Upload", "Upload", string.Format("上传附件:{0}", attachment.Dat_RefCode));

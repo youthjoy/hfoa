@@ -474,7 +474,7 @@ namespace QX.Controllers.Controllers
             string orderby = Bll_Comm.GetOrderString(sidx, sord);
             if ("".Equals(orderby))
             {
-                orderby = " order by Comp_ID desc";
+                orderby = "  ";
             }
             if (string.IsNullOrEmpty(filterSql))
             {
@@ -587,7 +587,7 @@ namespace QX.Controllers.Controllers
             var flag = false;
 
             string ftype = Request["ftype"];
-
+            string compcode = Request["CompCode"];
             if (string.IsNullOrEmpty(ftype))
             {
                 ftype = "Pic";
@@ -613,11 +613,11 @@ namespace QX.Controllers.Controllers
                 return Content("该文件并没有维护相关图纸文件!");
             }
  //if(flag)
-            if (flag && IsHavePermission(id, ftype))
+            if (flag && IsHavePermission(id, ftype,compcode))
             {
                 if (ftype == "Pic")
                 {
-                    BLL.Bll_Comm.OpLog("Bse_ComponentsModule", "GetDownload", string.Format("下载图纸:{0}", id));
+                    BLL.Bll_Comm.OpLog("Bse_ComponentsModule", "GetDownload", string.Format("查看图纸:{0}", id));
                     ViewData["File"] = attach.Dat_Code;
                     return View("ViewPic");
                 }
@@ -640,9 +640,9 @@ namespace QX.Controllers.Controllers
         /// 判断用户是否有权限查看
         /// </summary>
         /// <returns></returns>
-        public bool IsHavePermission(string id, string ftype)
+        public bool IsHavePermission(string id, string ftype,string compcode)
         {
-            var model=cInstance.GetModel(string.Format("AND Comp_Code='{0}'", id));
+            var model=cInstance.GetModel(string.Format("AND Comp_Code='{0}'", compcode));
             //如果是图纸本身的创建者则具有所有权限
             if (model != null && model.Comp_Creator == SessionConfig.UserId())
             {
@@ -652,7 +652,7 @@ namespace QX.Controllers.Controllers
             //如果是Pic则判断查看权限，否则下载权限
             string type=ftype=="Pic"?"View":"Download";
 
-            var flag1 = this.dinfoInstance.IsHaveAllotForComp(SessionConfig.UserId(), id,type);
+            var flag1 = this.dinfoInstance.IsHaveAllotForComp(SessionConfig.UserId(), compcode,type);
 
             return flag1;
         }

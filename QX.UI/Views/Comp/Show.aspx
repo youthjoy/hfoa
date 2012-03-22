@@ -14,21 +14,22 @@
     </form>
     <div id="tabs">
         <ul>
-            <li><a href="#tabs-1">正文</a></li>
-            <li><a href="#tabs-2">附件</a></li>
-            <li><a href="#tabs-3">授权</a></li>
+            <li><a href="#tabs-1">附件</a></li>
+            <li><a href="#tabs-2">备注</a></li>
+            <%--<li><a href="#tabs-3">授权</a></li>--%>
          
         </ul>
+     
         <div id="tabs-1">
+            <%=Html.SysComm_JqGrid("CompDoc_AttachmentModule", "Doc_Attachment", "/Doc/GetAttachmentList/"+Model.Comp_Code+"-Bse_ComponentsModule", true)%>
+        </div>
+           <div id="tabs-2">
             <%Html.RenderPartial("FCKEditor", string.IsNullOrEmpty(Model.Comp_Content)?"":Model.Comp_Content); %>
         </div>
-        <div id="tabs-2">
-            <%=Html.SysComm_JqGrid("Doc_AttachmentModule", "Doc_Attachment", "/Doc/GetAttachmentList/"+Model.Comp_Code+"-Bse_ComponentsModule", true)%>
-        </div>
-        <div id="tabs-3">
+      <%--  <div id="tabs-3">
             <%=Html.GenToolbarHelper("CompDoc_AllotModule", "Doc_Allot", "addN:''")%>
             <%=Html.SysComm_JqGrid("CompDoc_AllotModule", "Doc_Allot", "/Doc/GetAllot/"+Model.Comp_Code, true)%>
-        </div>
+        </div>--%>
      <%--   <div id="tabs-4">
             <%=Html.GenToolbarHelper("Bse_CompHistoryModule", "Bse_CompHistory", "addN:'打印',addFunJs:'Print()'")%>
             <%=Html.SysComm_JqGrid("Bse_CompHistoryModule", "Bse_CompHistory", "/Comp/GetCompHisList/" + Model.Comp_Code, true)%>

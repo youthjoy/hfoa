@@ -17,7 +17,7 @@ namespace QX.DAL
       /// </summary>
       public int Add(Doc_Attachment doc_Attachment)
       {
-         string sql = "INSERT INTO Doc_Attachment (Dat_Code,Dat_Name,Dat_Path,Dat_Module,Dat_RefCode,Dat_Type,Dat_Stat,Dat_Order,Dat_Date,Dat_Creator,Dat_CreatorName,CreateTime,UpdateTime,DeleteTime,Stat) VALUES (@Dat_Code,@Dat_Name,@Dat_Path,@Dat_Module,@Dat_RefCode,@Dat_Type,@Dat_Stat,@Dat_Order,@Dat_Date,@Dat_Creator,@Dat_CreatorName,@CreateTime,@UpdateTime,@DeleteTime,@Stat)";
+         string sql = "INSERT INTO Doc_Attachment (Dat_Code,Dat_Name,Dat_Path,Dat_Module,Dat_RefCode,Dat_Type,Dat_Stat,Dat_Order,Dat_Date,Dat_Creator,Dat_CreatorName,CreateTime,UpdateTime,DeleteTime,Stat,Dat_Udef1,Dat_Udef2,Dat_Udef3,Dat_Udef4,Dat_ShowName) VALUES (@Dat_Code,@Dat_Name,@Dat_Path,@Dat_Module,@Dat_RefCode,@Dat_Type,@Dat_Stat,@Dat_Order,@Dat_Date,@Dat_Creator,@Dat_CreatorName,@CreateTime,@UpdateTime,@DeleteTime,@Stat,@Dat_Udef1,@Dat_Udef2,@Dat_Udef3,@Dat_Udef4,@Dat_ShowName)";
          if (string.IsNullOrEmpty(doc_Attachment.Dat_Code))
          {
             idb.AddParameter("@Dat_Code", DBNull.Value);
@@ -137,6 +137,46 @@ namespace QX.DAL
          else
          {
             idb.AddParameter("@Stat", doc_Attachment.Stat);
+         }
+         if (string.IsNullOrEmpty(doc_Attachment.Dat_Udef1))
+         {
+            idb.AddParameter("@Dat_Udef1", DBNull.Value);
+         }
+         else
+         {
+            idb.AddParameter("@Dat_Udef1", doc_Attachment.Dat_Udef1);
+         }
+         if (string.IsNullOrEmpty(doc_Attachment.Dat_Udef2))
+         {
+            idb.AddParameter("@Dat_Udef2", DBNull.Value);
+         }
+         else
+         {
+            idb.AddParameter("@Dat_Udef2", doc_Attachment.Dat_Udef2);
+         }
+         if (string.IsNullOrEmpty(doc_Attachment.Dat_Udef3))
+         {
+            idb.AddParameter("@Dat_Udef3", DBNull.Value);
+         }
+         else
+         {
+            idb.AddParameter("@Dat_Udef3", doc_Attachment.Dat_Udef3);
+         }
+         if (string.IsNullOrEmpty(doc_Attachment.Dat_Udef4))
+         {
+            idb.AddParameter("@Dat_Udef4", DBNull.Value);
+         }
+         else
+         {
+            idb.AddParameter("@Dat_Udef4", doc_Attachment.Dat_Udef4);
+         }
+         if (string.IsNullOrEmpty(doc_Attachment.Dat_ShowName))
+         {
+            idb.AddParameter("@Dat_ShowName", DBNull.Value);
+         }
+         else
+         {
+            idb.AddParameter("@Dat_ShowName", doc_Attachment.Dat_ShowName);
          }
 
          return idb.ExeCmd(sql);
@@ -146,7 +186,7 @@ namespace QX.DAL
       /// </summary>
       public object AddWithReturn(Doc_Attachment doc_Attachment)
       {
-         string sql = "INSERT INTO Doc_Attachment (Dat_Code,Dat_Name,Dat_Path,Dat_Module,Dat_RefCode,Dat_Type,Dat_Stat,Dat_Order,Dat_Date,Dat_Creator,Dat_CreatorName,CreateTime,UpdateTime,DeleteTime,Stat) VALUES (@Dat_Code,@Dat_Name,@Dat_Path,@Dat_Module,@Dat_RefCode,@Dat_Type,@Dat_Stat,@Dat_Order,@Dat_Date,@Dat_Creator,@Dat_CreatorName,@CreateTime,@UpdateTime,@DeleteTime,@Stat);SELECT @@IDENTITY AS ReturnID;";
+         string sql = "INSERT INTO Doc_Attachment (Dat_Code,Dat_Name,Dat_Path,Dat_Module,Dat_RefCode,Dat_Type,Dat_Stat,Dat_Order,Dat_Date,Dat_Creator,Dat_CreatorName,CreateTime,UpdateTime,DeleteTime,Stat,Dat_Udef1,Dat_Udef2,Dat_Udef3,Dat_Udef4,Dat_ShowName) VALUES (@Dat_Code,@Dat_Name,@Dat_Path,@Dat_Module,@Dat_RefCode,@Dat_Type,@Dat_Stat,@Dat_Order,@Dat_Date,@Dat_Creator,@Dat_CreatorName,@CreateTime,@UpdateTime,@DeleteTime,@Stat,@Dat_Udef1,@Dat_Udef2,@Dat_Udef3,@Dat_Udef4,@Dat_ShowName);SELECT @@IDENTITY AS ReturnID;";
          if (string.IsNullOrEmpty(doc_Attachment.Dat_Code))
          {
             idb.AddParameter("@Dat_Code", DBNull.Value);
@@ -266,6 +306,46 @@ namespace QX.DAL
          else
          {
             idb.AddParameter("@Stat", doc_Attachment.Stat);
+         }
+         if (string.IsNullOrEmpty(doc_Attachment.Dat_Udef1))
+         {
+            idb.AddParameter("@Dat_Udef1", DBNull.Value);
+         }
+         else
+         {
+            idb.AddParameter("@Dat_Udef1", doc_Attachment.Dat_Udef1);
+         }
+         if (string.IsNullOrEmpty(doc_Attachment.Dat_Udef2))
+         {
+            idb.AddParameter("@Dat_Udef2", DBNull.Value);
+         }
+         else
+         {
+            idb.AddParameter("@Dat_Udef2", doc_Attachment.Dat_Udef2);
+         }
+         if (string.IsNullOrEmpty(doc_Attachment.Dat_Udef3))
+         {
+            idb.AddParameter("@Dat_Udef3", DBNull.Value);
+         }
+         else
+         {
+            idb.AddParameter("@Dat_Udef3", doc_Attachment.Dat_Udef3);
+         }
+         if (string.IsNullOrEmpty(doc_Attachment.Dat_Udef4))
+         {
+            idb.AddParameter("@Dat_Udef4", DBNull.Value);
+         }
+         else
+         {
+            idb.AddParameter("@Dat_Udef4", doc_Attachment.Dat_Udef4);
+         }
+         if (string.IsNullOrEmpty(doc_Attachment.Dat_ShowName))
+         {
+            idb.AddParameter("@Dat_ShowName", DBNull.Value);
+         }
+         else
+         {
+            idb.AddParameter("@Dat_ShowName", doc_Attachment.Dat_ShowName);
          }
 
          return idb.ReturnValue(sql);
@@ -293,7 +373,12 @@ namespace QX.DAL
       if(doc_Attachment.CreateTime_IsChanged){sbParameter.Append("CreateTime=@CreateTime, ");}
       if(doc_Attachment.UpdateTime_IsChanged){sbParameter.Append("UpdateTime=@UpdateTime, ");}
       if(doc_Attachment.DeleteTime_IsChanged){sbParameter.Append("DeleteTime=@DeleteTime, ");}
-      if(doc_Attachment.Stat_IsChanged){sbParameter.Append("Stat=@Stat ");}          sb.Append(sbParameter.ToString().Trim().TrimEnd(',')); 
+      if(doc_Attachment.Stat_IsChanged){sbParameter.Append("Stat=@Stat, ");}
+      if(doc_Attachment.Dat_Udef1_IsChanged){sbParameter.Append("Dat_Udef1=@Dat_Udef1, ");}
+      if(doc_Attachment.Dat_Udef2_IsChanged){sbParameter.Append("Dat_Udef2=@Dat_Udef2, ");}
+      if(doc_Attachment.Dat_Udef3_IsChanged){sbParameter.Append("Dat_Udef3=@Dat_Udef3, ");}
+      if(doc_Attachment.Dat_Udef4_IsChanged){sbParameter.Append("Dat_Udef4=@Dat_Udef4, ");}
+      if(doc_Attachment.Dat_ShowName_IsChanged){sbParameter.Append("Dat_ShowName=@Dat_ShowName ");}          sb.Append(sbParameter.ToString().Trim().TrimEnd(',')); 
       sb.Append(      " WHERE 1=1 AND ((Stat is null) or (Stat=0))   and Dat_ID=@Dat_ID; " );
       string sql=sb.ToString();
          if(doc_Attachment.Dat_Code_IsChanged)
@@ -461,6 +546,61 @@ namespace QX.DAL
             idb.AddParameter("@Stat", doc_Attachment.Stat);
          }
           }
+         if(doc_Attachment.Dat_Udef1_IsChanged)
+         {
+         if (string.IsNullOrEmpty(doc_Attachment.Dat_Udef1))
+         {
+            idb.AddParameter("@Dat_Udef1", DBNull.Value);
+         }
+         else
+         {
+            idb.AddParameter("@Dat_Udef1", doc_Attachment.Dat_Udef1);
+         }
+          }
+         if(doc_Attachment.Dat_Udef2_IsChanged)
+         {
+         if (string.IsNullOrEmpty(doc_Attachment.Dat_Udef2))
+         {
+            idb.AddParameter("@Dat_Udef2", DBNull.Value);
+         }
+         else
+         {
+            idb.AddParameter("@Dat_Udef2", doc_Attachment.Dat_Udef2);
+         }
+          }
+         if(doc_Attachment.Dat_Udef3_IsChanged)
+         {
+         if (string.IsNullOrEmpty(doc_Attachment.Dat_Udef3))
+         {
+            idb.AddParameter("@Dat_Udef3", DBNull.Value);
+         }
+         else
+         {
+            idb.AddParameter("@Dat_Udef3", doc_Attachment.Dat_Udef3);
+         }
+          }
+         if(doc_Attachment.Dat_Udef4_IsChanged)
+         {
+         if (string.IsNullOrEmpty(doc_Attachment.Dat_Udef4))
+         {
+            idb.AddParameter("@Dat_Udef4", DBNull.Value);
+         }
+         else
+         {
+            idb.AddParameter("@Dat_Udef4", doc_Attachment.Dat_Udef4);
+         }
+          }
+         if(doc_Attachment.Dat_ShowName_IsChanged)
+         {
+         if (string.IsNullOrEmpty(doc_Attachment.Dat_ShowName))
+         {
+            idb.AddParameter("@Dat_ShowName", DBNull.Value);
+         }
+         else
+         {
+            idb.AddParameter("@Dat_ShowName", doc_Attachment.Dat_ShowName);
+         }
+          }
 
          idb.AddParameter("@Dat_ID", doc_Attachment.Dat_ID);
 
@@ -482,7 +622,7 @@ namespace QX.DAL
       public Doc_Attachment GetByKey(decimal dat_ID)
       {
          Doc_Attachment doc_Attachment = new Doc_Attachment();
-         string sql = "SELECT  Dat_ID,Dat_Code,Dat_Name,Dat_Path,Dat_Module,Dat_RefCode,Dat_Type,Dat_Stat,Dat_Order,Dat_Date,Dat_Creator,Dat_CreatorName,CreateTime,UpdateTime,DeleteTime,Stat FROM Doc_Attachment WHERE 1=1 AND ((Stat is null) or (Stat=0) )  AND Dat_ID=@Dat_ID ";
+         string sql = "SELECT  Dat_ID,Dat_Code,Dat_Name,Dat_Path,Dat_Module,Dat_RefCode,Dat_Type,Dat_Stat,Dat_Order,Dat_Date,Dat_Creator,Dat_CreatorName,CreateTime,UpdateTime,DeleteTime,Stat,Dat_Udef1,Dat_Udef2,Dat_Udef3,Dat_Udef4,Dat_ShowName FROM Doc_Attachment WHERE 1=1 AND ((Stat is null) or (Stat=0) )  AND Dat_ID=@Dat_ID ";
          idb.AddParameter("@Dat_ID", dat_ID);
 
           SqlDataReader dr=null;  
@@ -506,6 +646,11 @@ namespace QX.DAL
             if (dr["UpdateTime"] != DBNull.Value) doc_Attachment.UpdateTime = Convert.ToDateTime(dr["UpdateTime"]);
             if (dr["DeleteTime"] != DBNull.Value) doc_Attachment.DeleteTime = Convert.ToDateTime(dr["DeleteTime"]);
             if (dr["Stat"] != DBNull.Value) doc_Attachment.Stat = Convert.ToInt32(dr["Stat"]);
+            if (dr["Dat_Udef1"] != DBNull.Value) doc_Attachment.Dat_Udef1 = Convert.ToString(dr["Dat_Udef1"]);
+            if (dr["Dat_Udef2"] != DBNull.Value) doc_Attachment.Dat_Udef2 = Convert.ToString(dr["Dat_Udef2"]);
+            if (dr["Dat_Udef3"] != DBNull.Value) doc_Attachment.Dat_Udef3 = Convert.ToString(dr["Dat_Udef3"]);
+            if (dr["Dat_Udef4"] != DBNull.Value) doc_Attachment.Dat_Udef4 = Convert.ToString(dr["Dat_Udef4"]);
+            if (dr["Dat_ShowName"] != DBNull.Value) doc_Attachment.Dat_ShowName = Convert.ToString(dr["Dat_ShowName"]);
          }
           }catch (System.Exception ex){ throw ex; }  finally { if (dr != null) { dr.Close(); } if (idb.GetConnection() != null && idb.GetConnection().State == ConnectionState.Open) { idb.GetConnection().Close(); }   }  
          return doc_Attachment;
@@ -516,7 +661,7 @@ namespace QX.DAL
       public List<Doc_Attachment> GetListByWhere(string strCondition)
       {
          List<Doc_Attachment> ret = new List<Doc_Attachment>();
-         string sql = "SELECT  Dat_ID,Dat_Code,Dat_Name,Dat_Path,Dat_Module,Dat_RefCode,Dat_Type,Dat_Stat,Dat_Order,Dat_Date,Dat_Creator,Dat_CreatorName,CreateTime,UpdateTime,DeleteTime,Stat FROM Doc_Attachment WHERE 1=1 AND ((Stat is null) or (Stat=0) ) ";
+         string sql = "SELECT  Dat_ID,Dat_Code,Dat_Name,Dat_Path,Dat_Module,Dat_RefCode,Dat_Type,Dat_Stat,Dat_Order,Dat_Date,Dat_Creator,Dat_CreatorName,CreateTime,UpdateTime,DeleteTime,Stat,Dat_Udef1,Dat_Udef2,Dat_Udef3,Dat_Udef4,Dat_ShowName FROM Doc_Attachment WHERE 1=1 AND ((Stat is null) or (Stat=0) ) ";
          if(!string.IsNullOrEmpty(strCondition))
          {
             strCondition.Replace('\'','"'); //防sql注入
@@ -545,6 +690,11 @@ namespace QX.DAL
             if (dr["UpdateTime"] != DBNull.Value) doc_Attachment.UpdateTime = Convert.ToDateTime(dr["UpdateTime"]);
             if (dr["DeleteTime"] != DBNull.Value) doc_Attachment.DeleteTime = Convert.ToDateTime(dr["DeleteTime"]);
             if (dr["Stat"] != DBNull.Value) doc_Attachment.Stat = Convert.ToInt32(dr["Stat"]);
+            if (dr["Dat_Udef1"] != DBNull.Value) doc_Attachment.Dat_Udef1 = Convert.ToString(dr["Dat_Udef1"]);
+            if (dr["Dat_Udef2"] != DBNull.Value) doc_Attachment.Dat_Udef2 = Convert.ToString(dr["Dat_Udef2"]);
+            if (dr["Dat_Udef3"] != DBNull.Value) doc_Attachment.Dat_Udef3 = Convert.ToString(dr["Dat_Udef3"]);
+            if (dr["Dat_Udef4"] != DBNull.Value) doc_Attachment.Dat_Udef4 = Convert.ToString(dr["Dat_Udef4"]);
+            if (dr["Dat_ShowName"] != DBNull.Value) doc_Attachment.Dat_ShowName = Convert.ToString(dr["Dat_ShowName"]);
             ret.Add(doc_Attachment);
          }
           }catch (System.Exception ex){ throw ex; }  finally { if (dr != null) { dr.Close(); } if (idb.GetConnection() != null && idb.GetConnection().State == ConnectionState.Open) { idb.GetConnection().Close(); }   }  
@@ -556,7 +706,7 @@ namespace QX.DAL
       public List<Doc_Attachment> GetAll()
       {
          List<Doc_Attachment> ret = new List<Doc_Attachment>();
-         string sql = "SELECT  Dat_ID,Dat_Code,Dat_Name,Dat_Path,Dat_Module,Dat_RefCode,Dat_Type,Dat_Stat,Dat_Order,Dat_Date,Dat_Creator,Dat_CreatorName,CreateTime,UpdateTime,DeleteTime,Stat FROM Doc_Attachment where 1=1 AND ((Stat is null) or (Stat=0) ) order by Dat_ID desc ";
+         string sql = "SELECT  Dat_ID,Dat_Code,Dat_Name,Dat_Path,Dat_Module,Dat_RefCode,Dat_Type,Dat_Stat,Dat_Order,Dat_Date,Dat_Creator,Dat_CreatorName,CreateTime,UpdateTime,DeleteTime,Stat,Dat_Udef1,Dat_Udef2,Dat_Udef3,Dat_Udef4,Dat_ShowName FROM Doc_Attachment where 1=1 AND ((Stat is null) or (Stat=0) ) order by Dat_ID desc ";
           SqlDataReader dr=null;  
            try {  
           dr=(SqlDataReader)idb.ReturnReader(sql);
@@ -579,6 +729,11 @@ namespace QX.DAL
             if (dr["UpdateTime"] != DBNull.Value) doc_Attachment.UpdateTime = Convert.ToDateTime(dr["UpdateTime"]);
             if (dr["DeleteTime"] != DBNull.Value) doc_Attachment.DeleteTime = Convert.ToDateTime(dr["DeleteTime"]);
             if (dr["Stat"] != DBNull.Value) doc_Attachment.Stat = Convert.ToInt32(dr["Stat"]);
+            if (dr["Dat_Udef1"] != DBNull.Value) doc_Attachment.Dat_Udef1 = Convert.ToString(dr["Dat_Udef1"]);
+            if (dr["Dat_Udef2"] != DBNull.Value) doc_Attachment.Dat_Udef2 = Convert.ToString(dr["Dat_Udef2"]);
+            if (dr["Dat_Udef3"] != DBNull.Value) doc_Attachment.Dat_Udef3 = Convert.ToString(dr["Dat_Udef3"]);
+            if (dr["Dat_Udef4"] != DBNull.Value) doc_Attachment.Dat_Udef4 = Convert.ToString(dr["Dat_Udef4"]);
+            if (dr["Dat_ShowName"] != DBNull.Value) doc_Attachment.Dat_ShowName = Convert.ToString(dr["Dat_ShowName"]);
             ret.Add(doc_Attachment);
          }
           }catch (System.Exception ex){ throw ex; }  finally {  if (dr != null) { dr.Close(); } if (idb.GetConnection() != null && idb.GetConnection().State == ConnectionState.Open) { idb.GetConnection().Close(); }   } 

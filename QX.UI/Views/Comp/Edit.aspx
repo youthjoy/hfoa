@@ -15,21 +15,47 @@
         </form>
         <div id="tabs">
             <ul>
-                <li><a href="#tabs-1">备注</a></li>
-                <li><a href="#tabs-2">附件</a></li>
+                <li><a href="#tabs-1">附件</a></li>
+                <li><a href="#tabs-2">备注</a></li>
                 <li><a href="#tabs-3">授权</a></li>
                 <%--<li><a href="#tabs-4">审核历史</a></li>--%>
             </ul>
             <div id="tabs-1">
-                <%Html.RenderPartial("FCKEditor", string.IsNullOrEmpty(Model.Comp_Content) ? "" : Model.Comp_Content); %>
+                <table>
+                    <tr>
+                        <td style="width: 300px; border: solid 1px #e5e5e5;">
+                            <%=Html.GenToolbarHelper("CList_RoadNode", "RoadNode", "")%>
+                            <%=Html.SysComm_JqGrid("CList_RoadNode", "RoadNode", "/Comp/GetRoadNodesList/"+Model.Comp_CCode , true)%>
+                        </td>
+                        <td style="width: 70%;">
+                            <span>
+                                <label class="form_label" for="Comp_Type" form_label="">
+                                    零件类型</label>
+                                <select id="Comp_Type" class="select" name="Comp_Type" style="display: inline;">
+                                </select>
+                                <input type="hidden" id="Comp_TypeName" value="" name="Comp_TypeName" />
+                            </span>
+
+                            <script type="text/javascript">
+                                $(document).ready(function() {
+                                    Common_Select_Dict.Init($('#Comp_Type'), 'CompType', 'Comp_TypeName');
+                                });
+                        </script>
+
+                            <%if (Html.IsHavePermission("400600"))
+                              { %>
+                            <div style="margin-left: 30px; margin-top: 10px;">
+                                <%Html.RenderPartial("AttachmentsControl", "uploadCallback", new ViewDataDictionary { new KeyValuePair<string, object>("UploadUrl", "/Doc/Upload/"), new KeyValuePair<string, object>("SetParamCallback", "setParameter"), new KeyValuePair<string, object>("CID", "Attach"), new KeyValuePair<string, object>("FileType", "Comp") }); %>
+                            </div>
+                            <%} %>
+                            <%=Html.GenToolbarHelper("CompDoc_AttachmentModule", "Doc_Attachment", "delN:'删除附件',delFunJs:'Del()'")%>
+                            <%=Html.SysComm_JqGrid("CompDoc_AttachmentModule", "Doc_Attachment", "/Doc/GetAttachmentList/" + Model.Comp_Code + "-Bse_ComponentsModule", true)%>
+                        </td>
+                    </tr>
+                </table>
             </div>
             <div id="tabs-2">
-                <%if (Html.IsHavePermission("400600"))
-                  { %>
-                <%Html.RenderPartial("AttachmentsControl", "uploadCallback", new ViewDataDictionary { new KeyValuePair<string, object>("UploadUrl", "/Doc/Upload/"), new KeyValuePair<string, object>("SetParamCallback", "setParameter"), new KeyValuePair<string, object>("FileType", "Comp") }); %>
-                <%} %>
-                <%=Html.GenToolbarHelper("CompDoc_AttachmentModule", "Doc_Attachment", "delN:'删除附件',delFunJs:'Del()'")%>
-                <%=Html.SysComm_JqGrid("CompDoc_AttachmentModule", "Doc_Attachment", "/Doc/GetAttachmentList/" + Model.Comp_Code + "-Bse_ComponentsModule", true)%>
+                <%Html.RenderPartial("FCKEditor", string.IsNullOrEmpty(Model.Comp_Content) ? "" : Model.Comp_Content); %>
             </div>
             <div id="tabs-3">
                 <%=Html.GenToolbarHelper("CompDoc_AllotModule", "Doc_Allot", "addN:'查看授权',addFunJs:'Allot()',editN:'下载授权',editFunJs:'DownloadAllot()',delFunJs:'Del()'")%>
@@ -59,14 +85,15 @@
                 return backUrl;
             }
 
-            function setParameter(loader) {
-                if ($("#Comp_Cate").val() == undefined) {
-                    alert("请选择工艺节点");
-                    return false;
-                }
-                loader.setParams({ typeParam: 'Comp', DictKey: "RoadNode", Cate: $("#Comp_Cate").val() });
-                return true;
-            }
+            //            function setParameter(loader) {
+            //                if ($("#Comp_Cate").val() == undefined) {
+            //                    alert("请选择工艺节点");
+            //                    return false;
+            //                }
+            //                loader.setParams({ typeParam: 'Comp', DictKey: "RoadNode", Cate: $("#Comp_Cate").val() });
+            //                return true;
+            //            }
+
             function Doc_AllotAllot() {
 
             }
@@ -168,19 +195,59 @@
 
             }
 
+            function setParameter(loader) {
+                //            if ($("#Comp_Cate").val() == '' && $("#Comp_Type").val() != "CompType1") {
+                //                alert("请选择工艺节点");
+                //                return false;
+                //            }
+
+                var grid = $('#RoadNodegrid');
+                var curid = grid.getGridParam('selrow'); //获取选择行的id
+
+                if ($("#Comp_Type").val() == 'CompType1') {
+                    loader.setParams({ typeParam: 'Comp', DictKey: "", Cate: "" });
+                    return true;
+                }
+
+                if (curid == undefined || curid == null) {
+                    alert("请选择工序节点");
+                    return false;
+                }
+                var data = grid.getRowData(curid);
+                loader.setParams({ CompCode: $("#Comp_CCode").val(), typeParam: 'Comp', DictKey: "RoadNode", Cate: data.RNodes_Code });
+                return true;
+
+            }
+            //附件上传
             function uploadCallback(id, fpath) {
+                var grid = $('#RoadNodegrid');
+                var curid = grid.getGridParam('selrow'); //获取选择行的id
+                var nosel = grid.getRowData(curid);
+                var type = $("#Comp_Type").val();
+                var typename = $("#Comp_Type").find("option:selected").text(); ;
+                var node = '';
+                var nodename = '';
+                if ($("#Comp_Type").val() == 'CompType1') {
+                    node = "";
+                    nodename = "";
+                }
+                else {
+                    node = nosel.RNodes_Code;
+                    nodename = nosel.RNodes_Name;
+                }
+
                 $.ajax({
                     type: "post",
                     url: "/Doc/UploadDocComp",
                     dataType: "json",
-                    data: { code: $("#Comp_Code").val(), path: fpath, module: "Bse_ComponentsModule" },
+                    data: { code: $("#Comp_Code").val(), path: fpath, type: type, typename: typename, node: node, nodename: nodename, module: "Bse_ComponentsModule" },
                     success: function(re, textStatus) {
                         //                $("#Doc_Attachmentgrid").trigger("reloadGrid");
                         $("#Doc_Attachmentgrid").setGridParam({ url: '/Doc/GetAttachmentList/' + $("#Comp_Code").val() + '-Bse_ComponentsModule' }).trigger("reloadGrid");
                     }
                 });
-
             }
+
 
 
             //审核使用图片上传
@@ -205,8 +272,12 @@
                 //零件图号参考
                 $("#Comp_CCode").click(function() {
                     Road_ComponentsModuleRoad_ComponentsOpenRefer(function(data) {
+                        //图号信息更新
                         $("#Comp_CCode").val(data.Comp_Code);
                         $("#Comp_Name").val(data.Comp_Name);
+                        //工序模板列表更新
+                        $("#RoadNodegrid").setGridParam({ url: '/Comp/GetRoadNodesList/' + data.Comp_Code }).trigger("reloadGrid");
+
                     });
                 });
                 $("#Comp_CustomerName").click(function() {

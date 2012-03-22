@@ -667,7 +667,7 @@ namespace QX.DAL
             strCondition.Replace('\'','"'); //防sql注入
             sql += strCondition ;
          }
-   
+          sql += " ORDER BY Comp_ID DESC "; 
           SqlDataReader dr=null;  
            try {  
           dr=(SqlDataReader)idb.ReturnReader(sql);

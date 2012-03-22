@@ -77,7 +77,7 @@ namespace QX.BLL
         /// 判断是否有下载图纸授权
         /// </summary>
         /// <param name="userCode"></param>
-        /// <param name="modelcode"></param>
+        /// <param name="modelcode">要查看的图纸</param>
         /// <returns></returns>
         public bool IsHaveAllotForComp(string userCode, string modelcode,string type)
         {

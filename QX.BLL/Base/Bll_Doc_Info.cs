@@ -203,28 +203,28 @@ namespace QX.BLL
             List<Doc_Attachment> list = new List<Doc_Attachment>();
 
             //如果是查看则获取图片类型
-            if (ftype == "Pic")
-            {
-                var view = ConfigHelper.GetApp("FileExtention");
-                var views = view.Split(',');
-                StringBuilder sb = new StringBuilder();
-                foreach (var d in views)
-                {
-                    sb.AppendFormat("'{0}',", d);
-                }
-                list = GetAttachmentList(string.Format("AND DAT_RefCode='{0}' AND DAT_Type in ({1})", refcode, sb.ToString().TrimEnd(',')));
-            }//如果是下载则获取下载类型
-            else
-            {
-                var download = ConfigHelper.GetApp("DownloadExtention");
-                var downloads = download.Split(',');
-                StringBuilder sb = new StringBuilder();
-                foreach (var d in downloads)
-                {
-                    sb.AppendFormat("'{0}',", d);
-                }
-                list = GetAttachmentList(string.Format("AND DAT_RefCode='{0}' AND DAT_Type in ({1})", refcode, sb.ToString().TrimEnd(',')));
-            }
+            //if (ftype == "Pic")
+            //{
+                //var view = ConfigHelper.GetApp("FileExtention");
+                //var views = view.Split(',');
+                //StringBuilder sb = new StringBuilder();
+                //foreach (var d in views)
+                //{
+                //    sb.AppendFormat("'{0}',", d);
+                //}
+                list = GetAttachmentList(string.Format("AND DAT_Code='{0}' ", refcode));
+            //}//如果是下载则获取下载类型
+            //else
+            //{
+                //var download = ConfigHelper.GetApp("DownloadExtention");
+                //var downloads = download.Split(',');
+                //StringBuilder sb = new StringBuilder();
+                //foreach (var d in downloads)
+                //{
+                //    sb.AppendFormat("'{0}',", d);
+                //}
+               // list = GetAttachmentList(string.Format("AND DAT_Code='{0}' AND DAT_Type in ({1})", refcode, sb.ToString().TrimEnd(',')));
+          //  }
 
             return list;
         }
